@@ -42,7 +42,8 @@ public class CoreArmyLite
         armyLogging.registerMessage(message);
         if (delPrevMsg)
         {
-            if (Bot.Config.Get<string>("player1").ToLower() == Bot.Player.Username.ToLower())
+            string? player1 = Bot.Config!.Get<string>("player1");
+            if (!string.IsNullOrEmpty(player1) && player1.ToLower() == Bot.Player.Username.ToLower())
             {
                 Core.Logger("Clearing log");
                 armyLogging.ClearLogFile();
@@ -52,7 +53,8 @@ public class CoreArmyLite
 
     public void ClearLogFile()
     {
-        if (Bot.Config.Get<string>("player1").ToLower() == Bot.Player.Username.ToLower())
+        string? player1 = Bot.Config!.Get<string>("player1");
+        if (!string.IsNullOrEmpty(player1) && player1.ToLower() == Bot.Player.Username.ToLower())
         {
             Core.Logger("Clearing log");
             armyLogging.ClearLogFile();
@@ -175,7 +177,7 @@ public class CoreArmyLite
         }
     }
 
-    public void AggroMonStart(string map = null)
+    public void AggroMonStart(string? map = null)
     {
         if (aggroCTS is not null)
             AggroMonStop();
@@ -474,8 +476,13 @@ public class CoreArmyLite
     {
         try
         {
-            string jsonData = Bot.Flash.Call("availableMonsters");
-            var monsters = JArray.Parse(jsonData);
+            string? jsonData = Bot.Flash.Call("availableMonsters");
+            if (string.IsNullOrEmpty(jsonData))
+            {
+                Core.Logger("Failed to retrieve available monsters data.");
+                return false;
+            }
+            JArray monsters = JArray.Parse(jsonData);
 
             if (monsters.Count == 0)
             {
@@ -837,9 +844,10 @@ public class CoreArmyLite
                         Core.Logger("Bugged lobby, we were the only one missing?");
                         break;
                     }
-                    Core.Logger(
-                        $"[{Bot.Map.CellPlayers.Count}/{partySize}]"
-                    );
+                    if (Bot.Map.CellPlayers != null)
+                        Core.Logger($"[{Bot.Map.CellPlayers.Count}/{partySize}]");
+                    else
+                        Core.Logger("CellPlayers is null.");
                     // Core.Logger(
                     //     $"[{Bot.Map.CellPlayers.Count()}/{partySize}] Waiting for {String.Join(" & ", missingPlayers)}"
                     // );
@@ -853,13 +861,13 @@ public class CoreArmyLite
                 i = 0;
             }
         }
-
-        void PlayerAFK()
-        {
-            Core.Logger("Anti-AFK engaged");
-            Core.Sleep(1500);
-            Bot.Send.Packet("%xt%zm%afk%1%false%");
-        }
+        // This was never used, so I commented it out
+        // void PlayerAFK()
+        // {
+        //     Core.Logger("Anti-AFK engaged");
+        //     Core.Sleep(1500);
+        //     Bot.Send.Packet("%xt%zm%afk%1%false%");
+        // }
     }
 
     public string[] Players()
@@ -1697,8 +1705,8 @@ public class CoreArmyLite
 public class ArmyLogging
 {
     private static readonly object lockObject = new();
-    private string logFilePath;
-    public string message;
+    private string logFilePath = string.Empty;
+    public string message = string.Empty;
 
     // public ArmyLogging(string fileName = "ArmyLog.txt")
     // {
@@ -1722,7 +1730,6 @@ public class ArmyLogging
         {
             return true;
         }
-
         using FileStream stream = File.OpenRead(logFilePath);
         return stream.Length == 0;
     }
@@ -1764,7 +1771,7 @@ public class ArmyLogging
         lock (lockObject)
         {
             using StreamReader r = File.OpenText(logFilePath);
-            string line;
+            string? line;
             while ((line = r.ReadLine()) != null)
             {
                 lines.Add(line);

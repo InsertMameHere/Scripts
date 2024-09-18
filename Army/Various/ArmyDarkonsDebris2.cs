@@ -1,6 +1,7 @@
 
 //cs_include Scripts/CoreBots.cs
 //cs_include Scripts/Army/CoreArmyLite.cs
+//cs_include Scripts/CoreFarms.cs
 using Skua.Core.Interfaces;
 using Skua.Core.Models.Items;
 using Skua.Core.Models.Quests;
@@ -59,7 +60,13 @@ public class ArmyDarkonsDebris2
 
     void ArmyHunt(string map, string[] cells, string item, string priorityCell, int questId, int quant = 1)
     {
-        Core.Equip(Bot.Config.Get<string>("SafeClass"));
+        string? safeClass = Bot.Config!.Get<string>("SafeClass");
+
+        if (!string.IsNullOrEmpty(safeClass))
+            Core.Equip(safeClass);
+        else
+            Core.Logger("SafeClass configuration is missing or empty.");
+
         Army.registerMessage(item);
         Core.PrivateRooms = true;
         Core.PrivateRoomNumber = Army.getRoomNr();
@@ -73,10 +80,16 @@ public class ArmyDarkonsDebris2
         }
 
         Bot.Sleep(1000);
-        Core.Equip(Bot.Config.Get<string>("ClassToUse"));
+        string? classToUse = Bot.Config.Get<string>("ClassToUse");
+
+        if (!string.IsNullOrEmpty(classToUse))
+            Core.Equip(classToUse);
+        else
+            Core.Logger("ClassToUse configuration is missing or empty.");
+
         //Core.EquipClass(classType);
         Core.Join(map);
-        Army.waitForPartyCell("Enter", "Spawn");
+        //Army.waitForPartyCell("Enter", "Spawn");
         if (questId != 0)
             Core.RegisterQuests(questId);
         Army.waitForSignal("imready");

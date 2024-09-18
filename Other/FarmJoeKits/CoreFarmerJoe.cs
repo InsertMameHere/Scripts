@@ -207,8 +207,6 @@ public class CoreFarmerJoe
     public GlaceraStory GS = new();
     public Mazumi Mazumi = new();
 
-
-
     public string OptionsStorage = "FarmerJoePet";
     public bool DontPreconfigure = true;
     public List<IOption> Options = new()
@@ -246,6 +244,8 @@ public class CoreFarmerJoe
     /// </summary>
     public void DoAll()
     {
+
+        Adv.GearStore();
         Level1to30();
         Level30to75();
         Level75to100();
@@ -253,6 +253,7 @@ public class CoreFarmerJoe
         Outfit();
         Pets(PetChoice.HotMama);
         Pets(PetChoice.Akriloth);
+        Adv.GearStore(true);
     }
 
     /// <summary>
@@ -262,6 +263,8 @@ public class CoreFarmerJoe
     /// </summary>
     public void Level1to30()
     {
+
+
         // Beginner Items
         BeginnerItems();
 
@@ -279,11 +282,11 @@ public class CoreFarmerJoe
     public void Level30to75()
     {
 
+
         //Preset Solo & FarmClass (required if additional Classes were pre-aquired before teh script or your restarting it and CBO wasnt saved.
         SetClass(false, true, false);
         SetClass(true, false, false);
 
-        // //Adv.BestGear(GenericGearBoost.exp);
         Farm.ToggleBoost(BoostType.Experience);
 
         foreach (int Level in Core.FromTo(0, 75))
@@ -320,6 +323,7 @@ public class CoreFarmerJoe
 
                     Farm.Experience(Level);
 
+
                     if (!Core.CheckInventory("Awethur's Accoutrements"))
                     {
                         //For BOA lvl 30 Ninja *should* be able to kill escherion ..once in awhile :P (tested i got a few kills in an an hr... proabably horrible but w/e)
@@ -327,8 +331,8 @@ public class CoreFarmerJoe
                         SetClass(true, false, true);
                         Farm.BladeofAweREP(6, false);
                         Adv.BuyItem("museum", 631, "Awethur's Accoutrements");
-                        Core.Equip("Awethur's Accoutrements");
                     }
+
                     break;
 
                 case 50:
@@ -341,6 +345,7 @@ public class CoreFarmerJoe
                     }
 
                     Farm.Experience(Level);
+
 
                     //check to reduce setclass usage
                     if (!Core.CheckInventory("Scarlet Sorceress") || !Core.CheckInventory(new[] { "Archfiend", "Blaze Binder" }, any: true))
@@ -356,6 +361,8 @@ public class CoreFarmerJoe
                         SetClass(true, false, false);
                         BB.GetBurningBlade();
                     }
+
+
                     break;
 
                 case 55:
@@ -379,6 +386,7 @@ public class CoreFarmerJoe
                     }
 
                     Farm.Experience(Level);
+
                     break;
 
                 case 60:
@@ -390,6 +398,7 @@ public class CoreFarmerJoe
                     }
 
                     Farm.Experience(Level);
+
 
                     if (!Core.CheckInventory("DragonSoul Shinobi") || !Core.CheckInventory("ArchPaladin"))
                     {
@@ -412,6 +421,7 @@ public class CoreFarmerJoe
                     {
                         SetClass(false, true, false);
                         Farm.Experience(Level);
+
                     }
 
                     if (!Core.CheckInventory("Glacial Berserker") || !Core.CheckInventory("ArchPaladin"))
@@ -456,10 +466,12 @@ public class CoreFarmerJoe
                     //Set FarmClass to "ArchFiend"
                     SetClass(false, true, false);
                     Farm.Experience(Level);
+
                     break;
 
                 default:
                     Farm.Experience(Level);
+
                     break;
             }
         }
@@ -478,6 +490,8 @@ public class CoreFarmerJoe
     /// </summary>
     public void Level75to100()
     {
+
+
         // Prepare for Lvl100
         Core.Logger("P1: Healer for xiang, Buying & Ranking Healer\n" +
             "class to prep for xiang (Skipped if you have Dragon of Time.");
@@ -540,6 +554,7 @@ public class CoreFarmerJoe
         Attemp to get `Void Highlord Class`
         */
         Farm.Experience(80);
+
         SetClass(true, false, true);
         CAQ.DoAll();
         BBOA.GetBBoA();
@@ -567,8 +582,9 @@ public class CoreFarmerJoe
         Core.Logger("P4 Leveling to 100");
         SetClass(true, false, true);
         Farm.Experience();
+
         SRM.BuyAllMerge("Hollowborn Reaper's Scythe");
-        Core.Equip("Hollowborn Reaper's Scythe");
+
     }
 
     /// <summary>
@@ -580,6 +596,7 @@ public class CoreFarmerJoe
     /// </summary>
     public void EndGame()
     {
+
 
         #region Ending & Extras 
 
@@ -598,6 +615,7 @@ public class CoreFarmerJoe
         UnlockForgeEnhancements.DauntLess();
 
         // Apotheosis:
+
         ExaltedApotheosisPreReqs.PreReqs();
 
 
@@ -767,7 +785,7 @@ public class CoreFarmerJoe
         }
 
         Core.Logger("Starting out acc:\n" +
-            "\tGoals: Temp weapon, Ninja class.");
+            "\tGoals: Ninja class & Mage Class");
 
         Core.Logger("Getting Badges to look a little\n" +
             "more legit (start may take a minute)");
@@ -821,12 +839,12 @@ public class CoreFarmerJoe
 
         // Arrays of classes to check
         string[] soloClassesToCheck = new[] {
-            "Void Highlord", "Dragon of Time", "ArchPaladin", "Glacial Berserker", "DragonSoul Shinobi",
+            "Void Highlord", "Legion Revenant", "Dragon of Time", "ArchPaladin", "Glacial Berserker", "DragonSoul Shinobi",
             "Assassin", "Ninja Warrior", "Ninja", "Rogue (Rare)", "Rogue", "Healer (Rare)", "Healer"
         };
 
         string[] farmClassesToCheck = new[] {
-            "Archfiend", "Blaze Binder", "Scarlet Sorceress", "Master Ranger",
+           "Legion Revenant", "Archfiend", "Blaze Binder", "Scarlet Sorceress", "Master Ranger",
             "Mage (Rare)", "Mage"
         };
 

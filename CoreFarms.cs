@@ -219,7 +219,7 @@ public class CoreFarms
         Core.RegisterQuests(236);
         while (!Bot.ShouldExit && Bot.Player.Gold < goldQuant)
         {
-            Core.HuntMonster("greenguardwest", "Big Bad Boar", "Were Egg", log: false);
+            Core.KillMonster("greenguardwest", "West12", "Up", "Big Bad Boar", "Were Egg", log: false);
             Bot.Wait.ForDrop("Berserker Bunny", 40);
             if (!sell)
                 return;
@@ -1190,9 +1190,9 @@ public class CoreFarms
         while (!Bot.ShouldExit && FactionRank("Arcangrove") < rank)
         {
             for (int i = 0; i < 10; i++)
-                Core.KillMonster("arcangrove", "Back", "Left", "*", log: false);
+                Core.KillMonster("arcangrove", "LeftBack", "Left", "*", log: false); // Gorillaphant
             for (int i = 0; i < 10; i++)
-                Core.KillMonster("arcangrove", "Right", "Left", "*", log: false);
+                Core.KillMonster("arcangrove", "RightBack", "Left", "*", log: false); // Seed Spitter
         }
         Core.CancelRegisteredQuests();
         ToggleBoost(BoostType.Reputation, false);
@@ -1240,6 +1240,35 @@ public class CoreFarms
         ToggleBoost(BoostType.Reputation);
         Core.Logger($"Farming rank {rank}");
         // Core.RegisterQuests(3757);
+
+        // 3754 | Beat the Beasts
+        while (!Bot.ShouldExit && FactionRank("BeastMaster") < 3)
+        {
+            Core.EnsureAccept(3754);
+            Core.HuntMonster("boxes", "Sneevil", "Beast Crate", 6, log: false);
+            Core.HuntMonster("pirates", "mob", "Fish Scale", 6, log: false);
+            Core.EnsureComplete(3754);
+        }
+
+        // 3755 | Secrets and Scrolls
+        while (!Bot.ShouldExit && FactionRank("BeastMaster") < 4)
+        {
+            Core.EnsureAccept(3755);
+            Core.HuntMonster("bamboo", "Tanuki", "Secret Scrolls of Beast Commanding", 7, log: false);
+            Core.HuntMonster("pines", "Pine Troll", "Troll's Treatise on Beasts", log: false);
+            Core.EnsureComplete(3755);
+        }
+
+        // 3756 | Taming the Elementals
+        while (!Bot.ShouldExit && FactionRank("BeastMaster") < 6)
+        {
+            Core.EnsureAccept(3756);
+            Core.HuntMonster("mafic", "Living Fire", "Living Flame Core", 6, log: false);
+            Core.HuntMonster("elemental", "Mana Imp", "Mana Manipulation Orb", 5, log: false);
+            Core.EnsureComplete(3756);
+        }
+
+        // 3757 | Dark Creature Demands
         while (!Bot.ShouldExit && FactionRank("BeastMaster") < rank)
         {
             Core.EnsureAccept(3757);
@@ -1247,11 +1276,13 @@ public class CoreFarms
             Core.HuntMonster("dreamnexus", "Solar Phoenix", "Bright Binding of Submission", 16, log: false);
             Core.EnsureComplete(3757);
         }
+
         // Core.CancelRegisteredQuests();
         ToggleBoost(BoostType.Reputation, false);
         Core.SavedState(false);
     }
 
+    #region BlacksmithingREP
     public void BlacksmithingREP(int rank = 10, bool UseGold = false, bool BulkFarmGold = false)
     {
         if (FactionRank("Blacksmithing") >= rank)
@@ -1264,32 +1295,37 @@ public class CoreFarms
 
         if (UseGold)
         {
-            Core.Logger("using Gold Method");
-            // Core.RegisterQuests(8737);
+            Core.Logger("Using Gold Method");
+
             while (!Bot.ShouldExit && FactionRank("Blacksmithing") < rank)
             {
                 Core.EnsureAccept(8737);
-                if (Bot.Player.Gold % 5000000 != 0 && BulkFarmGold)
+
+                // Get remaining reputation XP needed to reach next rank
+                int remainingRepXP = RemainingFactionXp("Blacksmithing");
+                int itemsNeeded = (remainingRepXP + 999) / 1000; // Round up
+                int currentQuantity = Bot.Inventory.GetQuantity("Gold Voucher 500k");
+                Core.Logger($"Remaining Reputation XP: {remainingRepXP}");
+                Core.Logger($"Items to Buy in this Transaction: {Math.Min(200, Math.Max(0, Math.Min(itemsNeeded, 300 - currentQuantity)))}");
+
+                if (remainingRepXP > 0)
                 {
-                    ToggleBoost(BoostType.Reputation, false);
-                    Gold(1000000); //100m
+                    Gold(Math.Max(0, Math.Min(itemsNeeded, 300 - currentQuantity) * 500000));
+                    Core.BuyItem("alchemyacademy", 2036, "Gold Voucher 500k", Math.Min(200, Math.Max(0, Math.Min(itemsNeeded, 300 - currentQuantity))));
+                    Core.EnsureCompleteMulti(8737);
                 }
                 else
                 {
-                    ToggleBoost(BoostType.Reputation, false);
-                    Gold(5000000); //5m
+                    Core.Logger("Already at max rank.");
+                    return;
                 }
-                ToggleBoost(BoostType.Reputation);
-                Core.BuyItem("alchemyacademy", 2036, "Gold Voucher 500k", Bot.Player.Gold % 10 == 5000000 ? 10 : 1);
-                Core.Sleep();
-                Core.EnsureCompleteMulti(8737);
             }
-            // Core.CancelRegisteredQuests();
+
             ToggleBoost(BoostType.Reputation, false);
             Core.SavedState(false);
+            Core.Logger("Reputation boost deactivated and state saved.");
             return;
         }
-
         Core.Logger("Using Non-Gold Method");
         // Core.Logger($"If you can't Solo SlugButter, Either use the Gold method or Run the AP Script (Found in: Good-ArchPaladin) as it can Solo the boss 👍");
 
@@ -1319,6 +1355,7 @@ public class CoreFarms
         ToggleBoost(BoostType.Reputation, false);
         Core.SavedState(false);
     }
+    #endregion
 
     /// <summary>
     /// Farms reputation for the "Blade of Awe" faction and optionally purchases the Blade of Awe.
@@ -2583,44 +2620,48 @@ public class CoreFarms
 
         Core.EquipClass(ClassType.Farm);
         Core.RegisterQuests(7505); //Studying the Rogue 7505
-        while (!Bot.ShouldExit && FactionRank("Loremaster") < rank)
-        {
-
-            if (Core.IsMember && FactionRank("Loremaster") >= 3)
-                LoremasterREPAbove3();
-            else
-            {
-                Core.HuntMonster("wardwarf", "Drow Assassin", "Poisoned Dagger", 4, log: false);
-                Core.HuntMonster("wardwarf", "D'wain Jonsen", "Scroll: Opportunity's Strike", log: false);
-            }
-        }
-        Core.CancelRegisteredQuests();
-        ToggleBoost(BoostType.Reputation, false);
-        Core.SavedState(false);
-
-        void LoremasterREPAbove3()
+        if (Core.IsMember && FactionRank("Loremaster") >= 3)
         {
             if (!Core.isCompletedBefore(3032)) //Need boat for this questsline (member only)
             {
                 Core.Logger("Unlocking farming quest.");
                 Core.EnsureAccept(3029); //Rosetta Stones 3029
-                Core.HuntMonster("druids", "Void Bear", "Voidstone", 6, log: false);
+                Core.KillMonster("druids", "r2", "Left", "Void Bear", "Voidstone", 6);
                 Core.EnsureComplete(3029);
 
                 Core.EnsureAccept(3030); // Cull the Foot Soldiers 3030
-                Core.HuntMonster("druids", "Void Larva", "Void Larvae Death Cry", 4, log: false);
+                Core.KillMonster("druids", "Void Larva", "r6", "Left", "Void Larvae Death Cry", 4);
                 Core.EnsureComplete(3030);
 
                 Core.EnsureAccept(3031); // Bad Vibes 3031
-                Core.HuntMonster("druids", "Void Ghast", "Ghast's Death Cry", 4, log: false);
+                Core.KillMonster("druids", "Void Ghast", "r6", "Left", "Ghast's Death Cry", 4);
                 Core.EnsureComplete(3031);
             }
-
-            Core.EquipClass(ClassType.Solo);
-            Core.RegisterQuests(3032); //Quite the Problem 3032
-            while (!Bot.ShouldExit && FactionRank("Loremaster") < rank)
-                Core.HuntMonster("druids", "Young Void Giant", log: false);
+            Core.Logger("Prequiisit story quests finished.");
         }
+
+
+        if (Core.IsMember && FactionRank("Loremaster") >= 3)
+        {
+            Bot.Quests.UnregisterQuests(7505);
+            Core.EquipClass(ClassType.Solo);
+            Core.RegisterQuests(3032); // Quite the Problem 3032
+
+            while (!Bot.ShouldExit && FactionRank("Loremaster") < rank)
+                Core.KillMonster("druids", "r5", "Left", "Young Void Giant", log: false);
+        }
+        else
+        {
+            while (!Bot.ShouldExit && FactionRank("Loremaster") < rank)
+            {
+                Core.HuntMonster("wardwarf", "Drow Assassin", "Poisoned Dagger", 4, log: false);
+                Core.HuntMonster("wardwarf", "D'wain Jonsen", "Scroll: Opportunity's Strike", log: false);
+            }
+        }
+
+        Core.CancelRegisteredQuests();
+        ToggleBoost(BoostType.Reputation, false);
+        Core.SavedState(false);
     }
 
     public void LycanREP(int rank = 10)
@@ -3116,28 +3157,31 @@ public class CoreFarms
 
             Core.Join("Collection");
             Bot.Wait.ForMapLoad("Collection");
+            Bot.Wait.ForCellChange("Enter");
             Bot.Wait.ForCellChange("Begin");
             Core.Sleep();
 
-            bool ShopCheck = Bot.Shops.IsLoaded;
+            bool ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
 
             while (!Bot.ShouldExit && !ShopCheck)
             {
                 if (Bot.Map.Name != "Collection")
                     Core.Join("Collection");
+
                 if (Bot.Player.Cell != "Begin")
                     Core.Jump("Begin");
 
                 Bot.Shops.Load(325);
                 Bot.Wait.ForActionCooldown(GameActions.LoadShop);
                 Bot.Wait.ForTrue(() => Bot.Shops.IsLoaded, 20);
-                ShopCheck = Bot.Shops.IsLoaded;
+                ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
                 if (ShopCheck)
                     break;
             }
             Bot.Wait.ForActionCooldown(GameActions.LoadShop);
-            Core.Sleep();
 
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
             // Token D > Token C
             if (ShopCheck && dQuantity / 10 > 1 && cQuantity < 500 && dQuantity / 10 + cQuantity < 500)
             {
@@ -3148,6 +3192,7 @@ public class CoreFarms
                 Bot.Wait.ForItemBuy();
             }
             Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
             // Token C > Token B
             if (ShopCheck && cQuantity / 10 > 1 && bQuantity < 200 && cQuantity / 10 + bQuantity < 200)
             {
@@ -3158,6 +3203,7 @@ public class CoreFarms
                 Bot.Wait.ForItemBuy();
             }
             Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
 
             // Token B > Token A
             if (ShopCheck && bQuantity / 20 > 1 && aQuantity < 100 && bQuantity / 20 + aQuantity < 100)
@@ -3168,6 +3214,8 @@ public class CoreFarms
                 Bot.Wait.ForActionCooldown(GameActions.BuyItem);
                 Bot.Wait.ForItemBuy();
             }
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
         }
 
         Core.CancelRegisteredQuests();
@@ -3200,25 +3248,27 @@ public class CoreFarms
             Bot.Wait.ForCellChange("Begin");
             Core.Sleep();
 
-            bool ShopCheck = Bot.Shops.IsLoaded;
+            bool ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
 
             while (!Bot.ShouldExit && !ShopCheck)
             {
                 if (Bot.Map.Name != "Collection")
                     Core.Join("Collection");
+
                 if (Bot.Player.Cell != "Begin")
                     Core.Jump("Begin");
 
                 Bot.Shops.Load(325);
                 Bot.Wait.ForActionCooldown(GameActions.LoadShop);
                 Bot.Wait.ForTrue(() => Bot.Shops.IsLoaded, 20);
-                ShopCheck = Bot.Shops.IsLoaded;
+                ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
                 if (ShopCheck)
                     break;
             }
             Bot.Wait.ForActionCooldown(GameActions.LoadShop);
-            Core.Sleep();
 
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
             if (ShopCheck && dQuantity / 10 > 1 && cQuantity < 500 && dQuantity / 10 + cQuantity < 500)
             {
                 int buyC = dQuantity / 10;
@@ -3227,6 +3277,8 @@ public class CoreFarms
                 Bot.Wait.ForActionCooldown(GameActions.BuyItem);
                 Bot.Wait.ForItemBuy();
             }
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
             if (ShopCheck && cQuantity / 10 > 1 && bQuantity < 200 && cQuantity / 10 + bQuantity < 200)
             {
                 int buyB = cQuantity / 10;
@@ -3235,6 +3287,8 @@ public class CoreFarms
                 Bot.Wait.ForActionCooldown(GameActions.BuyItem);
                 Bot.Wait.ForItemBuy();
             }
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
             if (ShopCheck && bQuantity / 20 > 1 && aQuantity < 100 && bQuantity / 20 + aQuantity < 100)
             {
                 int buyA = bQuantity / 20;
@@ -3243,6 +3297,8 @@ public class CoreFarms
                 Bot.Wait.ForActionCooldown(GameActions.BuyItem);
                 Bot.Wait.ForItemBuy();
             }
+            Core.Sleep();
+            ShopCheck = ShopCheck = Bot.Map.Name == "collection" && Bot.Shops.IsLoaded && Bot.Shops.Name == "Super Fan Token Shop";
 
         }
 
@@ -3366,6 +3422,13 @@ public class CoreFarms
     Bot.Reputation.FactionList
         .FirstOrDefault(f => string.Equals(f.Name, faction, StringComparison.OrdinalIgnoreCase))
         ?.Rep ?? 0;
+    public int RemainingFactionXp(string faction)
+    {
+        var factionData = Bot.Reputation.FactionList
+            .FirstOrDefault(f => string.Equals(f.Name, faction, StringComparison.OrdinalIgnoreCase));
+
+        return factionData?.RemainingRep ?? 302500; // Return 0 if factionData is null
+    }
 
 
     #endregion

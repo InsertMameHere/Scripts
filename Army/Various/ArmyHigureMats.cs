@@ -75,12 +75,12 @@ public class ArmyHigureMats
         }
 
         Core.Join("whitemap");
-        Army.waitForPartyCell("Enter", "Spawn");
+        //Army.waitForPartyCell("Enter", "Spawn");
         Army.waitForSignal("armyready");
 
         var huntData = new[]
         {
-            new {Map = "arcangrove", Cells = new[] {"Right", "LeftBack"}, Item = "Darkon's Receipt", PriorityCell = "", QuestId = 7324, Quantity = 66},
+            new {Map = "arcangrove", Cells = new[] { "LeftBack", "Left", "Back"}, Item = "Darkon's Receipt", PriorityCell = "LeftBack", QuestId = 7324, Quantity = 66},
             new {Map = "astravia", Cells = new[] {"r6", "r7", "r8"}, Item = "La's Gratitude", PriorityCell = "r8", QuestId = 8001, Quantity = 66},
             new {Map = "astraviacastle", Cells = new[] {"r3", "r6", "r11"}, Item = "Astravian Medal", PriorityCell = "r11", QuestId = 8257, Quantity = 66},
             new {Map = "astraviajudge", Cells = new[] {"r2", "r3", "r11"}, Item = "A Melody", PriorityCell = "r11", QuestId = 8396, Quantity = 66},
@@ -120,12 +120,12 @@ public class ArmyHigureMats
         //Core.EquipClass(classType);
         Core.Join(map);
 
-        Army.waitForPartyCell("Enter", "Spawn");
+        //Army.waitForPartyCell("Enter", "Spawn");
         if (questId != 0)
             Core.RegisterQuests(questId);
 
 
-        Army.DivideOnCellsPriority(cells, priorityCell: priorityCell, setAggro: true, log: true);
+        Army.DivideOnCellsPriority(cells, priorityCell: priorityCell, setAggro: true, log: true, equipClass: true);
 
         Core.FarmingLogger(item, quant);
         Core.Logger($"army: starting {quant} {item}");

@@ -60,7 +60,12 @@ public class Core13LoC
         Story.KillQuest(183, "battleundera", "Skeletal Fire Mage");
 
         //Undead Assault
-        Story.KillQuest(176, "swordhavenundead", "Skeletal Soldier");
+        if (!Story.QuestProgression(176))
+        {
+            Core.EnsureAccept(176);
+            Core.HuntMonster("swordhavenundead", "Skeletal Soldier", "Slain Skeletal Soldier", 5);
+            Core.EnsureComplete(176);
+        }
 
         //Skull Crusher Mountain
         Story.KillQuest(177, "swordhavenundead", "Skeletal Ice Mage");
@@ -532,7 +537,7 @@ public class Core13LoC
             Core.HuntMonster("greenguardeast", "Wolf", "Wolf Documentation");
             Core.HuntMonster("greenguardwest", "Slime", "Slime Documentation");
             Core.HuntMonster("greenguardwest", "Frogzard", "Frogzard Documentation");
-            Core.HuntMonster("greenguardwest", "Big Bad Boar", "Wereboar Documentation");
+            Core.KillMonster("greenguardwest", "West12", "Up", "Big Bad Boar", "Wereboar Documentation");
             Core.EnsureComplete(515);
             Bot.Wait.ForPickup("Red's Big Wolf Slaying Axe");
             Core.RemoveDrop("Red's Big Wolf Slaying Axe");
@@ -951,7 +956,7 @@ public class Core13LoC
         if (!Story.QuestProgression(975))
         {
             Core.EnsureAccept(975);
-            Core.KillMonster("wanders", "r2", "Right", "Lotus Spider", "Spider Defeated", 6);
+            Core.KillMonster("wanders", "r5", "Right", "Lotus Spider", "Spider Defeated", 6);
             Core.EnsureComplete(975);
         }
 
@@ -967,7 +972,7 @@ public class Core13LoC
         if (!Story.QuestProgression(977))
         {
             Core.EnsureAccept(977);
-            Core.KillMonster("wanders", "r2", "Right", "Lotus Spider", "Dreamsand");
+            Core.KillMonster("wanders", "r5", "Right", "Lotus Spider", "Dreamsand");
             Core.EnsureComplete(977);
         }
 
@@ -1635,7 +1640,7 @@ public class Core13LoC
         }
 
         if (!Story.QuestProgression(2519))
-                Core.HuntMonster("mqlesson", "Dragonoid", "Dragonoid of Hours", isTemp: false);
+            Core.HuntMonster("mqlesson", "Dragonoid", "Dragonoid of Hours", isTemp: false);
 
         //Chaos Lord Iadoa
         Story.KillQuest(2519, "timespace", "Chaos Lord Iadoa");

@@ -1156,26 +1156,9 @@ public class CoreAdvanced
     }
 
     public bool HasMinimalBoost(GenericGearBoost boostType, int percentage)
-        => Bot.Inventory.Items.Concat(Bot.Bank.Items).Any(x => GetBoostFloat(x, boostType.ToString()) >= ((percentage / (float)100) + 1));
+        => Bot.Inventory.Items.Concat(Bot.Bank.Items).Any(x => Core.GetBoostFloat(x, boostType.ToString()) >= ((percentage / (float)100) + 1));
     public bool HasMinimalBoost(RacialGearBoost boostType, int percentage)
-        => Bot.Inventory.Items.Concat(Bot.Bank.Items).Any(x => GetBoostFloat(x, boostType.ToString()) >= ((percentage / (float)100) + 1));
-
-    public float GetBoostFloat(InventoryItem item, string boostType)
-    {
-        if (string.IsNullOrEmpty(item.Meta) || !item.Meta.Contains(boostType))
-            return 0F;
-        return _getBoostFloat(item, boostType);
-    }
-    private float _getBoostFloat(InventoryItem item, string boostType)
-    {
-        return float.Parse(
-            item.Meta
-                .Split(',')
-                .First(meta => meta.Contains(boostType))
-                .Split(':')
-                .Last()
-            , CultureInfo.InvariantCulture.NumberFormat);
-    }
+        => Bot.Inventory.Items.Concat(Bot.Bank.Items).Any(x => Core.GetBoostFloat(x, boostType.ToString()) >= ((percentage / (float)100) + 1));
 
     #endregion
 
@@ -2305,7 +2288,7 @@ public class CoreAdvanced
                     break;
                 #endregion
 
-                #region Wizard - Vainglory - Arcanas Concerto | Valiance - Pneuma | Wizard
+                #region Wizard - Vainglory - Ravenous | Valiance - Pneuma | Wizard
                 case "legion revenant":
                 case "legion revenant (ioda)":
                     if (!uVainglory() || !uValiance() || !uPneuma())
@@ -2313,7 +2296,7 @@ public class CoreAdvanced
 
                     type = EnhancementType.Wizard;
                     cSpecial = CapeSpecial.Vainglory;
-                    wSpecial = uArcanasConcerto() ? WeaponSpecial.Arcanas_Concerto : WeaponSpecial.Valiance;
+                    wSpecial = uArcanasConcerto() ? WeaponSpecial.Ravenous : WeaponSpecial.Valiance;
                     hSpecial = HelmSpecial.Pneuma;
                     break;
                 #endregion
@@ -3109,7 +3092,6 @@ public enum GenericGearBoost
 public enum RacialGearBoost
 {
     None,
-
     Chaos,
     Dragonkin,
     Drakath,

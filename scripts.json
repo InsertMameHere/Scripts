@@ -6,7 +6,7 @@
       "null"
     ],
     "path": "CoreAdvanced.cs",
-    "size": 131237,
+    "size": 130670,
     "fileName": "CoreAdvanced.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/CoreAdvanced.cs"
   },
@@ -17,7 +17,7 @@
       "null"
     ],
     "path": "CoreDailies.cs",
-    "size": 51311,
+    "size": 51190,
     "fileName": "CoreDailies.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/CoreDailies.cs"
   },
@@ -28,7 +28,7 @@
       "null"
     ],
     "path": "CoreStory.cs",
-    "size": 34151,
+    "size": 34132,
     "fileName": "CoreStory.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/CoreStory.cs"
   },
@@ -39,7 +39,7 @@
       "null"
     ],
     "path": "CoreFarms.cs",
-    "size": 124782,
+    "size": 128483,
     "fileName": "CoreFarms.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/CoreFarms.cs"
   },
@@ -50,7 +50,7 @@
       "null"
     ],
     "path": "CoreBots.cs",
-    "size": 246421,
+    "size": 255267,
     "fileName": "CoreBots.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/CoreBots.cs"
   },
@@ -663,7 +663,7 @@
       "shadow-void"
     ],
     "path": "Story/ShadowVoid.cs",
-    "size": 1879,
+    "size": 1864,
     "fileName": "ShadowVoid.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/ShadowVoid.cs"
   },
@@ -990,7 +990,7 @@
       "j6-saga"
     ],
     "path": "Story/J6Saga.cs",
-    "size": 6973,
+    "size": 7000,
     "fileName": "J6Saga.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/J6Saga.cs"
   },
@@ -1369,7 +1369,7 @@
       "shadow-slayer"
     ],
     "path": "Story/ShadowSlayerK.cs",
-    "size": 10017,
+    "size": 10033,
     "fileName": "ShadowSlayerK.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/ShadowSlayerK.cs"
   },
@@ -1672,7 +1672,7 @@
       "mazumi"
     ],
     "path": "Story/Mazumi.cs",
-    "size": 1607,
+    "size": 1742,
     "fileName": "Mazumi.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/Mazumi.cs"
   },
@@ -2021,7 +2021,7 @@
       "ravenous"
     ],
     "path": "Enhancement/UnlockForgeEnhancements.cs",
-    "size": 43949,
+    "size": 43941,
     "fileName": "UnlockForgeEnhancements.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Enhancement/UnlockForgeEnhancements.cs"
   },
@@ -2094,7 +2094,7 @@
       "army"
     ],
     "path": "Army/0CustomAggroMon.cs",
-    "size": 11015,
+    "size": 11049,
     "fileName": "0CustomAggroMon.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/0CustomAggroMon.cs"
   },
@@ -2105,7 +2105,7 @@
       "null"
     ],
     "path": "Army/CoreArmyLite.cs",
-    "size": 59774,
+    "size": 60303,
     "fileName": "CoreArmyLite.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/CoreArmyLite.cs"
   },
@@ -2121,7 +2121,7 @@
       "custom"
     ],
     "path": "Army/0AggroMonReader.cs",
-    "size": 5384,
+    "size": 5418,
     "fileName": "0AggroMonReader.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/0AggroMonReader.cs"
   },
@@ -2245,7 +2245,7 @@
       "swag token d"
     ],
     "path": "Farm/SwagTokenA.cs",
-    "size": 719,
+    "size": 783,
     "fileName": "SwagTokenA.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Farm/SwagTokenA.cs"
   },
@@ -2392,7 +2392,7 @@
       "luxuria"
     ],
     "path": "Legion/HeadOfTheLegionBeast.cs",
-    "size": 6772,
+    "size": 8625,
     "fileName": "HeadOfTheLegionBeast.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Legion/HeadOfTheLegionBeast.cs"
   },
@@ -3141,7 +3141,7 @@
       "null"
     ],
     "path": "Templates/CustomAggromonTemplate.cs",
-    "size": 1282,
+    "size": 1316,
     "fileName": "CustomAggromonTemplate.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Templates/CustomAggromonTemplate.cs"
   },
@@ -3224,7 +3224,7 @@
       "original drakath armor"
     ],
     "path": "Chaos/DrakathsArmor.cs",
-    "size": 3249,
+    "size": 3449,
     "fileName": "DrakathsArmor.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Chaos/DrakathsArmor.cs"
   },
@@ -3370,7 +3370,7 @@
       "goto"
     ],
     "path": "Tools/Butler.cs",
-    "size": 11384,
+    "size": 11418,
     "fileName": "Butler.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Tools/Butler.cs"
   },
@@ -3436,6 +3436,27 @@
     "size": 2622,
     "fileName": "AutoAttackWithMove.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Tools/AutoAttackWithMove.cs"
+  },
+  {
+    "name": "Check Roles",
+    "description": "This script will give a popup telling you a bunch of information regarding your account.",
+    "tags": [
+      "tool",
+      "evaluate",
+      "account",
+      "chrono",
+      "heromart",
+      "beta",
+      "founder",
+      "badges",
+      "enhancements",
+      "rare",
+      "seasonal"
+    ],
+    "path": "Tools/CheckArmyRoles.cs",
+    "size": 25995,
+    "fileName": "CheckArmyRoles.cs",
+    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Tools/CheckArmyRoles.cs"
   },
   {
     "name": "RankUpAllClasses",
@@ -3599,7 +3620,7 @@
       "null"
     ],
     "path": "Nation/CoreNation.cs",
-    "size": 92418,
+    "size": 92439,
     "fileName": "CoreNation.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Nation/CoreNation.cs"
   },
@@ -3654,7 +3675,7 @@
       "null"
     ],
     "path": "Nation/TimeIsMoney.cs",
-    "size": 1826,
+    "size": 1842,
     "fileName": "TimeIsMoney.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Nation/TimeIsMoney.cs"
   },
@@ -4406,7 +4427,7 @@
       "null"
     ],
     "path": "Story/ElegyofMadness(Darkon)/CoreAstravia.cs",
-    "size": 15903,
+    "size": 15957,
     "fileName": "CoreAstravia.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/ElegyofMadness(Darkon)/CoreAstravia.cs"
   },
@@ -5194,7 +5215,7 @@
       "null"
     ],
     "path": "Story/LordsofChaos/Core13LoC.cs",
-    "size": 81223,
+    "size": 81400,
     "fileName": "Core13LoC.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/LordsofChaos/Core13LoC.cs"
   },
@@ -6999,7 +7020,7 @@
       "null"
     ],
     "path": "Story/ShadowsOfChaos/CoreSoC.cs",
-    "size": 12185,
+    "size": 12102,
     "fileName": "CoreSoC.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/ShadowsOfChaos/CoreSoC.cs"
   },
@@ -7732,7 +7753,7 @@
       "seasonal"
     ],
     "path": "Seasonal/IndonesianDay/Kala.cs",
-    "size": 2332,
+    "size": 2360,
     "fileName": "Kala.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/IndonesianDay/Kala.cs"
   },
@@ -8071,7 +8092,7 @@
       "fools"
     ],
     "path": "Seasonal/AprilFools/Magicmeadow.cs",
-    "size": 1492,
+    "size": 1487,
     "fileName": "Magicmeadow.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/AprilFools/Magicmeadow.cs"
   },
@@ -8152,7 +8173,7 @@
       "april-fools"
     ],
     "path": "Seasonal/AprilFools/MeateorHunt.cs",
-    "size": 3719,
+    "size": 3709,
     "fileName": "MeateorHunt.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/AprilFools/MeateorHunt.cs"
   },
@@ -9044,7 +9065,7 @@
       "member"
     ],
     "path": "Seasonal/TalkLikeaPirateDay/AvastBadge[mem].cs",
-    "size": 6688,
+    "size": 6713,
     "fileName": "AvastBadge[mem].cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/TalkLikeaPirateDay/AvastBadge[mem].cs"
   },
@@ -10894,7 +10915,7 @@
       "pitiless"
     ],
     "path": "Seasonal/ObrigadoBrasil/TrickstersGiftsMerge.cs",
-    "size": 11039,
+    "size": 11073,
     "fileName": "TrickstersGiftsMerge.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/ObrigadoBrasil/TrickstersGiftsMerge.cs"
   },
@@ -11136,7 +11157,7 @@
       "BBA"
     ],
     "path": "Seasonal/Grenwog(Easter)/BerserkerBunnyArmor.cs",
-    "size": 1222,
+    "size": 1238,
     "fileName": "BerserkerBunnyArmor.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Seasonal/Grenwog(Easter)/BerserkerBunnyArmor.cs"
   },
@@ -11515,7 +11536,7 @@
       "oneclient"
     ],
     "path": "Army/OneClient/WheelOfDoom.cs",
-    "size": 1152,
+    "size": 1186,
     "fileName": "WheelOfDoom.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/OneClient/WheelOfDoom.cs"
   },
@@ -11541,7 +11562,7 @@
       "all"
     ],
     "path": "Army/OneClient/AllBankAllItems.cs",
-    "size": 1274,
+    "size": 1308,
     "fileName": "AllBankAllItems.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/OneClient/AllBankAllItems.cs"
   },
@@ -11559,7 +11580,7 @@
       "oneclient"
     ],
     "path": "Army/OneClient/EldersBlood.cs",
-    "size": 1175,
+    "size": 1209,
     "fileName": "EldersBlood.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/OneClient/EldersBlood.cs"
   },
@@ -11576,9 +11597,20 @@
       "oneclient"
     ],
     "path": "Army/OneClient/GenerateQueuedOneClientScript.cs",
-    "size": 11180,
+    "size": 11214,
     "fileName": "GenerateQueuedOneClientScript.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/OneClient/GenerateQueuedOneClientScript.cs"
+  },
+  {
+    "name": "null",
+    "description": "null",
+    "tags": [
+      "null"
+    ],
+    "path": "Army/OneClient/OneClientTemplate.cs",
+    "size": 1164,
+    "fileName": "OneClientTemplate.cs",
+    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/OneClient/OneClientTemplate.cs"
   },
   {
     "name": "IceWing Leveling Army",
@@ -11607,7 +11639,7 @@
       "seven circles war"
     ],
     "path": "Army/ArmyFarm/ArmyGold.cs",
-    "size": 10812,
+    "size": 11677,
     "fileName": "ArmyGold.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyFarm/ArmyGold.cs"
   },
@@ -11622,7 +11654,7 @@
       "aggro"
     ],
     "path": "Army/ArmyFarm/ArmyLeveling.cs",
-    "size": 11693,
+    "size": 12658,
     "fileName": "ArmyLeveling.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyFarm/ArmyLeveling.cs"
   },
@@ -11718,7 +11750,7 @@
       "fealty"
     ],
     "path": "Army/ArmyLegion/ArmyLRFull.cs",
-    "size": 27231,
+    "size": 27468,
     "fileName": "ArmyLRFull.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyLegion/ArmyLRFull.cs"
   },
@@ -11747,7 +11779,7 @@
       "army"
     ],
     "path": "Army/ArmyLegion/ArmyObsidianRock.cs",
-    "size": 1393,
+    "size": 1427,
     "fileName": "ArmyObsidianRock.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyLegion/ArmyObsidianRock.cs"
   },
@@ -11932,6 +11964,24 @@
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyNulgath/ArmyVoucherItemofNulgath.cs"
   },
   {
+    "name": "Super-Fan Swag Token A (Army)",
+    "description": "Farms Super-Fan Wwag Token A with f2p method",
+    "tags": [
+      "super",
+      "fan",
+      "swag",
+      "toke",
+      "a",
+      "army",
+      "f2p",
+      "rep"
+    ],
+    "path": "Army/Various/ArmySwagTokens.cs",
+    "size": 5944,
+    "fileName": "ArmySwagTokens.cs",
+    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmySwagTokens.cs"
+  },
+  {
     "name": "Elemental Binding (Army)",
     "description": "Farms Prismatic Seams using your army.",
     "tags": [
@@ -11955,7 +12005,7 @@
       "errands"
     ],
     "path": "Army/Various/ArmyDarkonErrands.cs",
-    "size": 4712,
+    "size": 4748,
     "fileName": "ArmyDarkonErrands.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmyDarkonErrands.cs"
   },
@@ -12018,7 +12068,7 @@
       "null"
     ],
     "path": "Army/Various/ArmyStarPiece.cs",
-    "size": 1663,
+    "size": 1697,
     "fileName": "ArmyStarPiece.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmyStarPiece.cs"
   },
@@ -12035,7 +12085,7 @@
       "lord"
     ],
     "path": "Army/Various/ArmyBloodMoonToken.cs",
-    "size": 1823,
+    "size": 1857,
     "fileName": "ArmyBloodMoonToken.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmyBloodMoonToken.cs"
   },
@@ -12065,27 +12115,9 @@
       "realm"
     ],
     "path": "Army/Various/ArmyMirrorRealmToken.cs",
-    "size": 2243,
+    "size": 2277,
     "fileName": "ArmyMirrorRealmToken.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmyMirrorRealmToken.cs"
-  },
-  {
-    "name": "Super-Fan Swag Token A (Army)",
-    "description": "Farms Super-Fan Wwag Token A with f2p method",
-    "tags": [
-      "super",
-      "fan",
-      "swag",
-      "toke",
-      "a",
-      "army",
-      "f2p",
-      "rep"
-    ],
-    "path": "Army/Various/ArmySwagTokensF2p.cs",
-    "size": 3276,
-    "fileName": "ArmySwagTokensF2p.cs",
-    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/Various/ArmySwagTokensF2p.cs"
   },
   {
     "name": "Smart Void Auras (Army)",
@@ -16627,6 +16659,36 @@
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/MergeShops/HakuVillageMerge.cs"
   },
   {
+    "name": "Pirate Blood War Music Merge",
+    "description": "This bot will farm the items belonging to the selected mode for the Pirate Blood War Music Merge [2483] in /piratebloodhub",
+    "tags": [
+      "pirate",
+      "blood",
+      "war",
+      "music",
+      "merge",
+      "piratebloodhub",
+      "goth",
+      "musician",
+      "invese",
+      "fancy",
+      "pigtails",
+      "beanie",
+      "cut",
+      "cat",
+      "morph",
+      "messenger",
+      "bag",
+      "backup",
+      "guitar",
+      "rocker"
+    ],
+    "path": "Other/MergeShops/PirateBloodWarMusicMerge.cs",
+    "size": 5299,
+    "fileName": "PirateBloodWarMusicMerge.cs",
+    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/MergeShops/PirateBloodWarMusicMerge.cs"
+  },
+  {
     "name": "Dradens Merge",
     "description": "This bot will farm the items belonging to the selected mode for the Dradens Merge [1137] in /phoenixrise",
     "tags": [
@@ -18371,6 +18433,47 @@
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/MergeShops/Adam1a1Merge.cs"
   },
   {
+    "name": "Pirate Blood War Merge",
+    "description": "This bot will farm the items belonging to the selected mode for the Pirate Blood War Merge [2482] in /piratebloodhub",
+    "tags": [
+      "pirate",
+      "blood",
+      "war",
+      "merge",
+      "piratebloodhub",
+      "enchanted",
+      "isles",
+      "corsair",
+      "corsairs",
+      "accoutrements",
+      "battle",
+      "morph",
+      "patch",
+      "skull",
+      "pet",
+      "cutlass",
+      "cutlasses",
+      "siren",
+      "poacher",
+      "beard",
+      "eyepatch",
+      "vampiric",
+      "bloodthirst",
+      "whip",
+      "backup",
+      "golden",
+      "anchor",
+      "gold",
+      "chain",
+      "hook",
+      "hooks"
+    ],
+    "path": "Other/MergeShops/PirateBloodWarMerge.cs",
+    "size": 5403,
+    "fileName": "PirateBloodWarMerge.cs",
+    "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/MergeShops/PirateBloodWarMerge.cs"
+  },
+  {
     "name": "CastleGaheris Merge",
     "description": "This bot will farm the items belonging to the selected mode for the CastleGaheris Merge [2465] in /castlegaheris",
     "tags": [
@@ -19124,7 +19227,7 @@
       "null"
     ],
     "path": "Other/FarmJoeKits/CoreFarmerJoe.cs",
-    "size": 47422,
+    "size": 47369,
     "fileName": "CoreFarmerJoe.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/FarmJoeKits/CoreFarmerJoe.cs"
   },
@@ -22070,7 +22173,7 @@
       "null"
     ],
     "path": "Story/Legion/DageTheEvilIsland/CoreDageTheEvilIsland.cs",
-    "size": 10914,
+    "size": 10870,
     "fileName": "CoreDageTheEvilIsland.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Story/Legion/DageTheEvilIsland/CoreDageTheEvilIsland.cs"
   },
@@ -24713,7 +24816,7 @@
       "army pet tamer reputation"
     ],
     "path": "Army/ArmyFarm/Rep/ArmyPetTamerRep.cs",
-    "size": 1571,
+    "size": 1605,
     "fileName": "ArmyPetTamerRep.cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Army/ArmyFarm/Rep/ArmyPetTamerRep.cs"
   },
@@ -25146,7 +25249,7 @@
       "null"
     ],
     "path": "Other/Classes/Curio-Classes/LegendaryElementalWarrior[mem].cs",
-    "size": 1362,
+    "size": 1650,
     "fileName": "LegendaryElementalWarrior[mem].cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Other/Classes/Curio-Classes/LegendaryElementalWarrior[mem].cs"
   },
@@ -25245,7 +25348,7 @@
       "null"
     ],
     "path": "Templates/Examples/ItemGathering/EmptyTemplate[Basics].cs",
-    "size": 1934,
+    "size": 1955,
     "fileName": "EmptyTemplate[Basics].cs",
     "downloadUrl": "https://raw.githubusercontent.com/BrenoHenrike/Scripts/Skua/Templates/Examples/ItemGathering/EmptyTemplate[Basics].cs"
   },

@@ -5,6 +5,7 @@ tags: darkon, receipt, first, second, third, errands
 */
 //cs_include Scripts/CoreBots.cs
 //cs_include Scripts/Army/CoreArmyLite.cs
+//cs_include Scripts/CoreFarms.cs
 using Skua.Core.Interfaces;
 using Skua.Core.Models.Items;
 using Skua.Core.Models.Quests;
@@ -64,7 +65,7 @@ public class ArmyDarkonErrands
                 break;
 
             case Method.Third_Errands:
-                ArmyHunt("tercessuinotlim", new[] { "Nulgath" }, "Darkon's Receipt", ClassType.Solo, false, 1, Method.Third_Errands);
+                ArmyHunt("tercessuinotlim", new[] { "Nulgath" }, "Darkon's Receipt", ClassType.Solo, false, 222, Method.Third_Errands);
                 break;
 
             default:
